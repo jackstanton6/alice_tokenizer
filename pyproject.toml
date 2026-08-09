@@ -1,0 +1,27 @@
+[project]
+name = "alice_tokenizer"
+version = "0.1.0"
+dependencies = [
+  "tqdm",
+  "regex"
+]
+description = "the tokenizer for alice0 and its training code, allowing you to build your own custom tokenizer."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    {name = "Jack Stanton"}
+]
+license = "GPL-3.0-only"
+license-files = ["LICEN[CS]E.*"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+keywords = ["AI", "tokeniser", "tokenizer", "tokenization", "tokenisation", "bpe", "byte per encoding"]
+
+[project.scripts]
+alice_t = "alice_tokenizer.cli.main:main"
+
+[build-system]
+requires = ["setuptools >= 71", "wheel"]
+build-backend = "setuptools.build_meta"
