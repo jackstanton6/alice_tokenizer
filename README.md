@@ -106,3 +106,34 @@ import alice_tokenizer as alice
 
 tokenizer = alice.Tokenizer(vocab_file="bob.json")
 ```
+
+### command line
+
+when installing the alice tokenizer, it comes with a nifty command line tool to allow you to more easily interface with the alice tokenizer without needing to use python.
+
+to boot it up, simply run
+
+```bash
+$ alice_t
+```
+
+this will open alice_t's terminal window, allowing you to enter in text and get back the tokenization instantly. to see everything you can do with alice_t, run the `/help` command when using it.
+
+#### training in the command line
+
+to train on the command line, you must pass the `--train` argument when using alice_t. this tells the program to begin training the tokenizer. you must pass the filename of your training data with `--data_file` to begin training, or else the training will not be able to start.
+
+example of a minimal training command
+
+```bash
+$ alice_t --train --data_file train.txt
+```
+
+this will begin training, once done it will open a terminal where you can use the newly trained tokenizer.
+using this command will negate many of the benefits using alice_tokenizer can give you. it wont save to your disk, have a name, nor can you declare the target vocab size. to do so you can use other arguments to declare these parameters.
+
+```bash
+$ alice_t --train --data_file train.txt --vocab_size 32000 --chunks 8000 --name bob --format json --save_to_file --pretokenize --do_tests
+```
+
+these parameters have the same function as the train() command does. if one is not included, it will snap back to its default. if --save_to_file, --pretokenize or --do_tests are not included, they will default to False. to see a list of each argument, use `alice_t --help`.
