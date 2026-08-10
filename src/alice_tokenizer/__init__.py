@@ -1,4 +1,6 @@
 from .tokenisation import *
 from .train_tokeniser import *
 
-__version__ = "0.1.0"
+Tokenizer = Tokeniser # for the americans
+
+__version__ = "0.2.0"

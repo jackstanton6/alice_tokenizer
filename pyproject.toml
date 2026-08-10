@@ -1,6 +1,6 @@
 [project]
 name = "alice_tokenizer"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
   "tqdm",
   "regex"
@@ -21,6 +21,12 @@ keywords = ["AI", "tokeniser", "tokenizer", "tokenization", "tokenisation", "bpe
 
 [project.scripts]
 alice_t = "alice_tokenizer.cli.main:main"
+
+[project.urls]
+Homepage = "https://github.com/jackstanton6/alice_tokenizer"
+Documentation = "https://github.com/jackstanton6/alice_tokenizer/README.md"
+Repository = "https://github.com/jackstanton6/alice_tokenizer"
+Issues = "https://github.com/jackstanton6/alice_tokenizer/issues"
 
 [build-system]
 requires = ["setuptools >= 71", "wheel"]

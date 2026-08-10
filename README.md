@@ -9,7 +9,7 @@ using alice_tokenizer is easy, it takes only a few steps to install and run.
 you can install alice_tokenizer using pip
 
 ```bash
-pip install alice_tokenizer
+pip install alice-tokenizer
 ```
 
 ## usage
@@ -90,7 +90,7 @@ below is a description of each parameter
 
 these values are all the preset defaults, if not declared they will snap back to these defaults instead.
 
-once the tokenizer is done building, you can test it immediately by using the tokenizer object methods.
+once the tokenizer is done building, you can use it immediately by using the tokenizer object methods.
 
 ```python
 tokens = tokenizer.tokenize("Tokenize me.")

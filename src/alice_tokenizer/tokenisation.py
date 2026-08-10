@@ -1,19 +1,25 @@
 import json
 
-from .util.vocab import vocab
+from .util.vocab import vocab as alice_vocab
 from .util.logo import logo
-from .train_tokeniser import *
+from .train_tokeniser import train
 
 class Tokeniser:
     def __init__(
             self,
+            name: str = 'alice_zero',
             build: bool = False,
-            vocab_file: str | None = None
+            vocab_file: str | None = None,
+            vocab: dict | None = None
         ):
-        self.tokeniser = 'alice_zero'
+        self.name = name
         self.build = build
-        self.encoding = {(int(key.split(',')[0]), int(key.split(',')[1])): vocab[key] for key in vocab}
-        self.vocab_size = len(self.encoding)
+        if vocab is not None:
+            self.encoding = vocab
+            self.vocab_size = len(self.encoding)
+        elif not build:
+            self.encoding = {(int(key.split(',')[0]), int(key.split(',')[1])): alice_vocab[key] for key in alice_vocab}
+            self.vocab_size = len(self.encoding)
 
     def set_data(self, filename: str):
         if not self.build:
@@ -105,8 +111,10 @@ class Tokeniser:
                 a, b = lookup[token_id]
                 return decode_token(a) + decode_token(b)
             return chr(token_id)
+        repres = []
         for token in tokens:
-            print(f"{token}: {decode_token(token)!r}")
+            repres.append(f"{token}: {decode_token(token)!r}")
+        print(', '.join(repres))
 
     def detokenise(self, tokens: list[int]) -> list:
         if self.build:
