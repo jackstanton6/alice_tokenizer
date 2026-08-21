@@ -37,7 +37,7 @@ a caviare decay of rich brocades.""",
         "Chancellor on brink of second bailout for banks."
     ]
 
-def visualise_tokens(self, user_in: str, vocab: dict) -> None:
+def visualise_tokens(user_in: str, vocab: dict) -> None:
     tokens = apply_vocab(user_in, vocab)
     lookup = {vocab[key]: key for key in vocab}
     def decode_token(token_id):
