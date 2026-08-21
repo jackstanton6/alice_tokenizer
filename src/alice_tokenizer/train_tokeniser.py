@@ -61,7 +61,7 @@ def chunk_text(text: str, chunk_num: int) -> list[str]:
     char_num = len(text)
     chunk_size = int(char_num / chunk_num)
     it = iter(text)
-    train_chunks = [list(islice(it, chunk_size)) for _ in range((len(train) + chunk_size -1 ) // chunk_size)]
+    train_chunks = [''.join(islice(it, chunk_size)) for _ in range((char_num + chunk_size - 1) // chunk_size)]
     return train_chunks
 
 def apply_vocab(numbers: list, vocab: dict) -> list:
